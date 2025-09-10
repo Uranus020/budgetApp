@@ -41,7 +41,7 @@ def view_expenses(expenses):
         print("-" * 63)
         
         for i in expenses:
-            print(f"{i['date']:<12}   {i['item']:^10} {f'{i['amount']:,}원':^20}  {i['type']:^15}")
+            print(f"{i['date']:<12}   {i['item']:^10} {f'{i['amount']:,}원':^20}  {i['category']:^15}")
         print("-"* 63, "\n")  
             
 def delete_expense(expenses):

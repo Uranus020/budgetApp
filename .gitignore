@@ -1,0 +1,13 @@
+# Python-specific files to ignore
+# 파이썬이 자동으로 생성하는 캐시 폴더 및 파일
+__pycache__/
+*.pyc
+
+# User-generated data files
+# 사용자가 프로그램을 실행하며 생성하는 데이터 파일
+expense.json
+expenses.csv
+
+# IDE/Editor specific files (VS Code)
+# VS Code 설정 폴더 (선택 사항이지만 추천)
+.vscode/

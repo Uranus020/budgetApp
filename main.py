@@ -6,8 +6,9 @@ def print_menu():
     print("1. 지출 추가")
     print("2. 지출 내역 보기")
     print("3. 지출 내역 삭제")
-    print("4. 환율 계산")
-    print("5. 프로그램 종료")
+    print("4. 지출 내역 csv파일로 내보내기")
+    print("5. 환율 계산")
+    print("6. 프로그램 종료")
     
 
 def main():
@@ -25,8 +26,10 @@ def main():
             delete_expense(expenses)
             save_expenses(expenses)
         elif choice == '4':
-            exrate(expenses)
+            save_as_csv(expenses)
         elif choice == '5':
+            exrate(expenses)
+        elif choice == '6':
             print("프로그램을 종료합니다.")
             break
         else:
