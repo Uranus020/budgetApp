@@ -16,17 +16,17 @@ def main():
         print_menu()
         choice = input("메뉴를 선택하시오: \n")
         
-        if choice == 1:
+        if choice == '1':
             add_expense(expenses)
             save_expenses(expenses)    
-        elif choice == 2:
-            view_expenses()
-        elif choice == 3:
+        elif choice == '2':
+            view_expenses(expenses)
+        elif choice == '3':
             delete_expense(expenses)
             save_expenses(expenses)
-        elif choice == 4:
+        elif choice == '4':
             exrate(expenses)
-        elif choice == 5:
+        elif choice == '5':
             print("프로그램을 종료합니다.")
             break
         else:
