@@ -1,5 +1,5 @@
 from budget import*
-from datamanage import*
+from data_manage import*
 from analysis import*
 from budget_manager import*
 
@@ -8,17 +8,17 @@ def print_menu():
     print("1. 지출 추가")
     print("2. 지출 내역 보기")
     print("3. 지출 내역 삭제")
-    print("-"*15)
+    print("-"*26)
     print("4. 지출 내역 검색하기")
     print("5. 월별 리포트 보기")
-    print("-"*15)
+    print("-"*26)
     print("6. 예산 설정하기")
     print("7. 예산 대비 지출 현황 보기")
-    print("-"*15)
+    print("-"*26)
     print("8. CSV 파일로 내보내기")
     print("9. 지출 내역 시각화하기")
     print("10. 프로그램 종료")
-    print("="*20)
+    print("="*26)
     
 
 def main():
