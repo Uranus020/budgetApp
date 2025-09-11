@@ -33,3 +33,5 @@ def save_as_csv(expenses):
         print(f"'{CSV_FILENAME}' 파일로 내보내기 완료")
     except Exception as e:
         print(f"CSV 파일 저장 중 오류가 발생했습니다: {e}")
+        
+        

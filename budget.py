@@ -62,8 +62,3 @@ def delete_expense(expenses):
         print(f"입력한 '{name}'은 존재하지 않습니다")
     
         
-        
-
-
-def exrate(expenses):
-        return
