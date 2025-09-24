@@ -102,8 +102,7 @@ def visualize_expense(filename):
     """
     CSV 파일을 읽어서 사용자 선택에 따라 여러 데이터 시각화를 제공
     1. 막대 그래프 (항목별 지출)
-    2. 원그래프 (항목별 지출 비율)
-    3. 선그래프 (일자별 지출 추이)
+    2. 선그래프 (일자별 지출 추이)
     """
     
     try:
@@ -117,11 +116,52 @@ def visualize_expense(filename):
         print("\n===지출 내역 시각화===")
         print("1. 항목별 지출 (막대그래프)")
         
-        print("2. 항목별 지출 (원그래프)")
-        
-        print("3. 항목별 지출 (선그래프)")
-        choice = 
+        print("2. 항목별 지출 (선그래프)")
+        choice =  input("원하는 시각화 유형을 선택하세요: ")
        
+        if choice == '1':
+            # 1. 막대 그래프
+            category_sum = df.groupby("항목")["금액"].sum().sort_values(ascending=False)
+            
+            bars = plt.bar(category_sum.index, category_sum.values, color='skyblue', edgecolor='black')
+            plt.title('항목별 총 지출액', fontsize=16)
+            plt.xlabel('항목', fontsize=12)
+            plt.ylabel('금액 (원)', fontsize=12)
+            plt.xticks(rotation=45) # 항목 이름이 길 경우를 대비해 45도 회전
+            plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+            # 막대 위에 정확한 금액 표시
+            for bar in bars:
+                yval = bar.get_height()
+                plt.text(bar.get_x() + bar.get_width()/2.0, yval, f'{int(yval):,}원', va='bottom', ha='center')
+
+            plt.savefig('expense_bar_chart.png')
+            print("'expense_bar_chart.png' 이름으로 막대그래프가 저장되었습니다.")
+
+
+        elif choice == '2':
+            # 2. 선그래프 
+            daily_sum = df.set_index('날짜').resample('D')['금액'].sum()
+            # 지출이 없는 날은 0으로 채움
+            daily_sum = daily_sum.fillna(0)
+            
+            plt.plot(daily_sum.index, daily_sum.values, marker='o', linestyle='-', color='royalblue')
+            plt.title('일자별 지출 추이', fontsize=16)
+            plt.xlabel('날짜', fontsize=12)
+            plt.ylabel('총 지출액 (원)', fontsize=12)
+            plt.grid(True)
+            # 날짜 형식 보기 좋게 자동 조절
+            plt.gcf().autofmt_xdate()
+
+            plt.savefig('expense_line_chart.png')
+            print("'expense_line_chart.png' 이름으로 선그래프가 저장되었습니다.")
+
+        else:
+            print("잘못된 선택입니다. 1, 2 중에서 선택해주세요.")
+            return 
+
+        plt.tight_layout() # 그래프 요소들이 겹치지 않게 자동 조절
+        plt.show() 
        
        
        
