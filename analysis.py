@@ -20,7 +20,7 @@ def search_expenses(expenses):
     keyword = input("검색할 내역 또는 항목을 입력하세요: ")
     # 새 리스트에 해당 키워드만 뽑아서 내역을 추가해주기
     results = [
-        k for k in expenses
+        exp for exp in expenses
         if keyword in k['item'] or keyword in k['category']
     ]
     
@@ -60,11 +60,16 @@ def monthly_report(expenses, budget_data):
     # 4. 카테고리별 지출 분석
     category_spending = {}
     for exp in monthly_expenses:
-        category = exp['category']
+        # category = exp['category'] 
+        # 만약 지출 중 하나라도 'category' 키가 없으면 프로그램 멈출 수도 있음
+        category = exp.get('category', '미분류')
+    
         amount = exp['amount']
-        if category not in category_spending:
-            category_spending[category] = 0
-        category_spending[category] += amount
+        # if category not in category_spending:
+        #     category_spending[category] = 0
+        # category_spending[category] += amount
+        # 간략하게 한 줄로 바꾸기
+        category_spending[category] = category_spending.get(category, 0) + amount
     
     # 5. 예산 정보 가져오고 업데이트하기
     monthly_budget  = budget_data.get(month_input, 0) # 만약에 예산이 없다면 0으로 처리하기
@@ -86,7 +91,7 @@ def monthly_report(expenses, budget_data):
     
     for category, amount in sorted_categories:
         percentage = (amount / total_spent) *100 if total_spent>0 else 0
-        print(f"- {category: <10}: {amountL>10,}원 ({percentage:.1f}%)")
+        print(f"- {category: <10}: {amount>10,}원 ({percentage:.1f}%)")
     print("=" *40)
 
 
