@@ -38,7 +38,8 @@ def main():
         elif choice == '4':
             search_expenses(expenses)
         elif choice == '5':
-            monthly_report(expenses)
+            budget_data = load_budget()
+            monthly_report(expenses, budget_data)
         elif choice == '6':
             set_budget()
         elif choice == '7':

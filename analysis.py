@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
+import datetime
 
 # 폰트가 깨져서 나타나기 때문에 폰트 설정도 미리 해줘야함
 try:
@@ -32,8 +33,61 @@ def search_expenses(expenses):
 
 
 # 월별 리포트 기능 
-def monthly_report(expenses):
-    return
+def monthly_report(expenses, budget_data):
+    
+    # 1. 사용자 입력으로 리프토를 확인할 월 지정
+    while True:
+        month_input = input("리포트를 확인할 월을 입력하시오 (YYYY-MM): ")
+        try:
+            datetime.datetime.strptime(month_input, '%Y-%m')
+            break
+        except ValueError:
+            print("잘못된 날짜 형식입니다. YYYY-MM 형식으로 다시 입력해주세요.")
+            
+    # 2. 해당 입력 월의 지출 내역 
+    monthly_expenses = [
+        exp for exp in expenses
+        if exp['date'].startswith(month_input)
+    ]
+    
+    if not monthly_expenses:
+        print(f"{month_input}월의 지출 내역이 없습니다.")
+        return
+
+    # 3. 총 지출액 계산
+    total_spent = sum(exp['amount'] for exp in monthly_expenses)
+    
+    # 4. 카테고리별 지출 분석
+    category_spending = {}
+    for exp in monthly_expenses:
+        category = exp['category']
+        amount = exp['amount']
+        if category not in category_spending:
+            category_spending[category] = 0
+        category_spending[category] += amount
+    
+    # 5. 예산 정보 가져오고 업데이트하기
+    monthly_budget  = budget_data.get(month_input, 0) # 만약에 예산이 없다면 0으로 처리하기
+    remaining_budget = monthly_budget - total_spent if monthly_budget > 0 else "N/A" 
+    
+    
+    # 6. 리포트 출력
+    print(f"\n====== {month_input} 월별 리포트 ======")
+    print(f"총 지출: {total_spent: ,}원")
+    if monthly_budget > 0:
+        print(f"설정 예산: {monthly_budget: ,}원 (남은 예산: {remaining_budget: ,}원)")
+    
+    else:
+        print("해당 월의 예산이 설정되지 않았습니다.")
+    print("\n--- 카테고리별 지출 상세 ---")
+    
+    # 지출액이 큰 순서대로 정렬해서 보이기
+    sorted_categories = sorted(category_spending.items(), key = lambda item: item[1], reverse=True)
+    
+    for category, amount in sorted_categories:
+        percentage = (amount / total_spent) *100 if total_spent>0 else 0
+        print(f"- {category: <10}: {amountL>10,}원 ({percentage:.1f}%)")
+    print("=" *40)
 
 
 
