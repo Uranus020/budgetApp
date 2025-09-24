@@ -99,15 +99,32 @@ def monthly_report(expenses, budget_data):
 
 # 지출 내역 시각화 기능
 def visualize_expense(filename):
+    """
+    CSV 파일을 읽어서 사용자 선택에 따라 여러 데이터 시각화를 제공
+    1. 막대 그래프 (항목별 지출)
+    2. 원그래프 (항목별 지출 비율)
+    3. 선그래프 (일자별 지출 추이)
+    """
+    
     try:
         df = pd.read_csv(filename, encoding="utf-8-sig")
         df["금액"] = pd.to_numeric(df["금액"], errors="coerce")
+        df.dropna(subset=['금액'], inplace=True)
+        # 날짜 데이터를 시계열 데이터로 변환 
+        df['날짜'] = pd.to_datetime(df['날짜'],errors ='coerce')
+        df.dropna(subset=['날짜'],inplace=True)
         
-        df.groupby("항목")["금액"].sum().plot(kind="bar", title="항목별 지출")
-        plt.xlabel("항목")
-        plt.ylabel("금액")
-        plt.tight_layout()
-        plt.show()
+        print("\n===지출 내역 시각화===")
+        print("1. 항목별 지출 (막대그래프)")
+        
+        print("2. 항목별 지출 (원그래프)")
+        
+        print("3. 항목별 지출 (선그래프)")
+        choice = 
+       
+       
+       
+       
         
     except FileNotFoundError:
         print(f"'{filename}' 파일을 찾을 수 없습니다. 메뉴 4번으로 CSV 파일을 먼저 내보내주세요.")    
