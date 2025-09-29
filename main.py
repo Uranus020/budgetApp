@@ -43,6 +43,7 @@ def main():
             add_expense(expenses)
             save_expenses(expenses)    
         elif choice == '2':
+            expenses = load_expenses()
             view_expenses(expenses)
         elif choice == '3':
             delete_expense(expenses)
@@ -50,7 +51,6 @@ def main():
         elif choice == '4':
             search_expenses(expenses)
         elif choice == '5':
-            # budget_data = load_budget()
             monthly_report(expenses, budget_data)
         elif choice == '6':
             set_budget()
