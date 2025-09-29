@@ -28,9 +28,6 @@ def add_expense(expenses):
     print("새 지출이 추가되었습니다.")
     
     
-    
-    
-    
 def view_expenses(expenses):
     print("\n--- 전체 지출 내역 ---\n")
     if not expenses:
@@ -40,8 +37,8 @@ def view_expenses(expenses):
         print(f"{'날짜':<12} {'내역':^10} {'금액':^20} {'항목':^15}")
         print("-" * 63)
         
-        for i in expenses:
-            print(f"{i['date']:<12}   {i['item']:^10} {f'{i['amount']:,}원':^20}  {i['category']:^15}")
+        for exp in expenses:
+            print(f"{exp['date']:<12} {exp['item']:^10} {f'{exp['amount']:,}원':^20} {exp['category']:^15}")
         print("-"* 63, "\n")  
             
 def delete_expense(expenses):

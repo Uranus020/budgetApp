@@ -21,7 +21,7 @@ def search_expenses(expenses):
     # 새 리스트에 해당 키워드만 뽑아서 내역을 추가해주기
     results = [
         exp for exp in expenses
-        if keyword in k['item'] or keyword in k['category']
+        if keyword in exp['item'] or keyword in exp['category']
     ]
     
     if not results:

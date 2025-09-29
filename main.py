@@ -1,5 +1,5 @@
 from budget import*
-from data_manage import*
+from data_manage import load_expenses, save_as_csv, save_expenses
 from analysis import*
 from budget_manager import*
 
@@ -22,7 +22,19 @@ def print_menu():
     
 
 def main():
-    expenses = load_expenses()
+
+    # 엑셀 파일을 직접 만들엇기 때문에 단순히 부르는 것이 아닌, 파일 이름을 지정해서 불러줘야함
+    # expenses = load_expenses()
+    
+    expenses = load_expenses("지출내역서.xlsx")
+    
+    if not expenses:
+        input("프로그램 종료합니다.")
+        return
+    
+    #원래 5번 항목에 들어가 있던 것을 매번 load하는 것이 아닌, 한 번만 load시키고 메뉴 고르도록 하기
+    budget_data = load_budget()
+    
     while True:
         print_menu()
         choice = input("메뉴를 선택하시오: \n")
@@ -38,16 +50,17 @@ def main():
         elif choice == '4':
             search_expenses(expenses)
         elif choice == '5':
-            budget_data = load_budget()
+            # budget_data = load_budget()
             monthly_report(expenses, budget_data)
         elif choice == '6':
             set_budget()
+            budget_data = load_budget()
         elif choice == '7':
             view_budget_status(expenses)
         elif choice == '8':
             save_as_csv(expenses)
         elif choice == '9':
-            visualize_expense(CSV_FILENAME)
+            visualize_expense("expenses.csv")
         elif choice == '10':
             print("프로그램을 종료합니다.")
             break
