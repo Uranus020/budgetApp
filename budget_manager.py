@@ -21,7 +21,7 @@ def save_budget(budget_data):
 def set_budget():
     budget_data = load_budget()
     
-    month_input = input("예산을 설정할 월을 입력하세요: ")
+    month_input = input("예산을 설정할 월을 입력하세요(YYYY-MM): ")
     
     try:
         amount_input = int(input(f"{month_input}월의 총 예산을 입력하세요: "))
@@ -36,7 +36,7 @@ def set_budget():
 def view_budget_status(expenses):
     budget_data = load_budget()
     
-    month_input = input("확인할 월을 입력하세요: ")
+    month_input = input("확인할 월을 입력하세요(YYYY-MM): ")
     
     if month_input not in budget_data:
         print(f"{month_input}월의 예산이 설정되지 않았습니다. 먼저 예산을 설정해주세요.")

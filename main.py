@@ -24,13 +24,12 @@ def print_menu():
 def main():
 
     # 엑셀 파일을 직접 만들엇기 때문에 단순히 부르는 것이 아닌, 파일 이름을 지정해서 불러줘야함
-    # expenses = load_expenses()
+    DATA_Ex = "지출내역서.xlsx"
     
-    expenses = load_expenses("지출내역서.xlsx")
+    expenses = load_expenses(DATA_Ex)
     
     if not expenses:
-        input("프로그램 종료합니다.")
-        return
+        expenses = load_expenses(DATA_Ex) or []
     
     #원래 5번 항목에 들어가 있던 것을 매번 load하는 것이 아닌, 한 번만 load시키고 메뉴 고르도록 하기
     budget_data = load_budget()
@@ -43,7 +42,7 @@ def main():
             add_expense(expenses)
             save_expenses(expenses)    
         elif choice == '2':
-            expenses = load_expenses()
+            expenses = load_expenses(DATA_Ex)
             view_expenses(expenses)
         elif choice == '3':
             delete_expense(expenses)
