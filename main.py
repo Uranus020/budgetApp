@@ -1,7 +1,7 @@
-from budget import*
+from budget import add_expense, view_expenses, delete_expense
 from data_manage import load_expenses, save_as_csv, save_expenses
-from analysis import*
-from budget_manager import*
+from analysis import visualize_expense, search_expenses, monthly_report
+from budget_manager import set_budget, load_budget, view_budget_status
 
 def print_menu():
     print("\n====== My BudgetApp ======")
