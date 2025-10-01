@@ -7,13 +7,15 @@
 
 
 ### 설치 / 실행 
-1. python -V
-2. 가상 환경 
-   python -m venv .venv
-   source .venv/bin/activate
-3. pip install pandas, matplotlib
-4. 실행
-   python main.py
+   1. 버전 확인
+      python -V # 3.10+ 권장
+   2. 가상 환경 (선택)
+      python -m venv .venv
+      source .venv/bin/activate
+   3. 의존성 설치
+      pip install pandas matplotlib
+   4. 실행
+      python main.py
 
 
 
@@ -32,9 +34,7 @@
     │  ├─ expense_bar_chart.png
     │  └─ expense_line_chart.png
     └─ README.md
-
-
-
+============================================
 
 
 ### 주요 기능
@@ -77,6 +77,14 @@
 1. (8) CSV 파일로 내보내기 -> exports/expenses.csv 생성
 2. (9) 지출 내역 시각화하기 -> plots/expense_bar_char.png, plots/expense_line_chart.png생성
 
+예시 이미지:
+1. 카테고리 막대그래프
+   ![막대그래프 이미지](./Figure_1.png)
+
+2. 지출 일자별 선그래프
+   ![선그래프 이미지](./Figure_2.png)
+
+
 
 
 
@@ -87,6 +95,12 @@
 - - amount/금액: 정수(원)
 - - item: 문자열
 - - category: {"식비","교통비","쇼핑","문화생활","교육비","의료비",...}
+
+- 데이터 source 선택
+- - 기본 data source는 main.py상단의 DATA_Ex로 지정함
+- - expense.json (내부저장) 혹은 지출내역서.xlsx(엑셀) 중 선택
+- - exports/expenses.csvsms (8) 내보내기 실행 시 생성
+=================================
 
 
 ### .gitignore
