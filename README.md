@@ -6,7 +6,7 @@
 이 데이터를 월별, 카테고리별 리포트와 그래프를 생성하는 Python 앱입니다.
 
 
-### 설치 / 실행 
+### 1. 설치 / 실행 
    1. 버전 확인
       python -V # 3.10+ 권장
    2. 가상 환경 (선택)
@@ -19,7 +19,7 @@
 
 
 
-### 프로젝트 구조
+### 2. 프로젝트 구조
     budgetApp/
     ├─ main.py                 # 메뉴형 CLI 진입점
     ├─ budget.py               # 지출 추가/조회/삭제
@@ -34,10 +34,10 @@
     │  ├─ expense_bar_chart.png
     │  └─ expense_line_chart.png
     └─ README.md
-============================================
 
 
-### 주요 기능
+
+### 3. 주요 기능
 
 - 지출 추가/ 조회/ 삭제
 - 월별 예산 설정 및 지출 현황 확인
@@ -45,7 +45,7 @@
 - 월별/ 카테고리별 집계
 - 막대/ 선 그래프로 저장
   
-### 명령 흐름 예시 
+### 4. 명령 흐름 예시 
 ====== My BudgetApp ======
 1. 지출 추가
 2. 지출 내역 보기
@@ -62,33 +62,33 @@
 10. 프로그램 종료
 
 
-#### 지출 추가 예시
-날짜 (YYYY-MM-DD): 2025-09-29
-내역: 투썸
-금액: 4500
-항목: 식비
-=> 저장되었습니다.
+#### 1) 지출 추가 예시
+   날짜 (YYYY-MM-DD): 2025-09-29
+   내역: 투썸
+   금액: 4500
+   항목: 식비
+   => 저장되었습니다.
 
-#### 내역 보기
+#### 2) 내역 보기
 2025-09-29 | 투썸 |   4,500 | 식비
 
 
-#### CSV 내보내기 -> 시각화 연동
+#### 3) CSV 내보내기 -> 시각화 연동
 1. (8) CSV 파일로 내보내기 -> exports/expenses.csv 생성
 2. (9) 지출 내역 시각화하기 -> plots/expense_bar_char.png, plots/expense_line_chart.png생성
 
 예시 이미지:
 1. 카테고리 막대그래프
-   ![막대그래프 이미지](./Figure_1.png)
+   ![막대그래프 이미지](./plots/expense_bar_chart.png)
 
 2. 지출 일자별 선그래프
-   ![선그래프 이미지](./Figure_2.png)
+   ![선그래프 이미지](./plots/expense_line_chart.png)
 
 
 
 
 
-### 데이터 스키마
+### 5. 데이터 스키마
 - 공통 키: date/날짜, item/내역, amount/금액, category/항목
 - 형식
 - - date/날짜: YYYY-MM-DD
@@ -100,10 +100,10 @@
 - - 기본 data source는 main.py상단의 DATA_Ex로 지정함
 - - expense.json (내부저장) 혹은 지출내역서.xlsx(엑셀) 중 선택
 - - exports/expenses.csvsms (8) 내보내기 실행 시 생성
-=================================
 
 
-### .gitignore
+
+### 6. .gitignore
     # User-generated data (원본 무시)
     expense.json
     expenses.csv
