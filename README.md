@@ -18,20 +18,20 @@
 
 
 ### 프로젝트 구조
-budgetApp/
-├─ main.py                 # 메뉴형 CLI 진입점
-├─ budget.py               # 지출 추가/조회/삭제
-├─ analysis.py             # 검색/리포트/시각화
-├─ data_manage.py          # 파일 I/O(JSON/CSV/Excel)
-├─ budget_manager.py       # 예산 설정/조회
-├─ expense.json            # 내부 저장소(예시)
-├─ data_samples/           # 데모용 샘플 데이터 
-│  ├─ 지출내역서_sample.xlsx
-│  └─ expenses_sample.csv
-├─ plots/                  # 예시 그래프 
-│  ├─ expense_bar_chart.png
-│  └─ expense_line_chart.png
-└─ README.md
+    budgetApp/
+    ├─ main.py                 # 메뉴형 CLI 진입점
+    ├─ budget.py               # 지출 추가/조회/삭제
+    ├─ analysis.py             # 검색/리포트/시각화
+    ├─ data_manage.py          # 파일 I/O(JSON/CSV/Excel)
+    ├─ budget_manager.py       # 예산 설정/조회
+    ├─ expense.json            # 내부 저장소(예시)
+    ├─ data_samples/           # 데모용 샘플 데이터 
+    │  ├─ 지출내역서_sample.xlsx
+    │  └─ expenses_sample.csv
+    ├─ plots/                  # 예시 그래프 
+    │  ├─ expense_bar_chart.png
+    │  └─ expense_line_chart.png
+    └─ README.md
 
 
 
