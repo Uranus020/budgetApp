@@ -91,7 +91,7 @@ def monthly_report(expenses, budget_data):
     
     for category, amount in sorted_categories:
         percentage = (amount / total_spent) *100 if total_spent>0 else 0
-        print(f"- {category: <10}: {amount>10,}원 ({percentage:.1f}%)")
+        print(f"- {category:<10}: {amount>10,}원 ({percentage:.1f}%)")
     print("=" *40)
 
 
@@ -163,7 +163,8 @@ def visualize_expense(filename):
         plt.tight_layout() # 그래프 요소들이 겹치지 않게 자동 조절
         plt.show() 
        
-       
+        input("엔터를 누르면 메뉴로 돌아갑니다.")
+        return
        
         
     except FileNotFoundError:
