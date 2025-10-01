@@ -38,17 +38,18 @@
 => 저장되었습니다.
 
 #### 내역 보기
-  2025-09-29 | 투썸         |    4,500 | 식비
+2025-09-29 || 투썸 ||   4,500 || 식비
 ...
+----
 (총 N건, 합계 XXX,XXX원)
 
 
 #### 데이터 스키마
-  date, item, amount, category
-  date: YYYY-MM-DD
-  item: 문자열
-  amount: 정수(원)
-  category: {"식비","교통비","쇼핑","문화생활","교육비","의료비",...}
+- date, item, amount, category
+- date: YYYY-MM-DD
+- item: 문자열
+- amount: 정수(원)
+- category: {"식비","교통비","쇼핑","문화생활","교육비","의료비",...}
 
 
 
