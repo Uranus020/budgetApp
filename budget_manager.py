@@ -47,7 +47,7 @@ def view_budget_status(expenses):
    
     # 해당 월의 지출액
     monthly_spent = sum(
-        k['amount'] for k in expenses if k['date'].startswith(month_input)
+        exp['amount'] for exp in expenses if exp['date'].startswith(month_input)
     )
     
     remaining = monthly_budget - monthly_spent
