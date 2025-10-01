@@ -75,11 +75,8 @@
 
 #### 3) CSV 내보내기 -> 시각화 연동
 1. (8) CSV 파일로 내보내기 -> exports/expenses.csv 생성
-<<<<<<< HEAD
+
 2. (9) 지출 내역 시각화하기 -> plots/expense_bar_char.png, plots/expense_line_chart.png생성
-=======
-2. (9) 지출 내역 시각화하기 -> plots/expense_bar_chart.png, plots/expense_line_chart.png생성
->>>>>>> 43d96c6 (reinit local repo)
 
 예시 이미지:
 1. 카테고리 막대그래프
@@ -103,11 +100,8 @@
 - 데이터 source 선택
 - - 기본 data source는 main.py상단의 DATA_Ex로 지정함
 - - expense.json (내부저장) 혹은 지출내역서.xlsx(엑셀) 중 선택
-<<<<<<< HEAD
-- - exports/expenses.csvsms (8) 내보내기 실행 시 생성
-=======
 - - exports/expenses.csv (8) 내보내기 실행 시 생성
->>>>>>> 43d96c6 (reinit local repo)
+
 
 
 
