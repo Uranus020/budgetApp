@@ -20,6 +20,8 @@ dist/
 expense.json
 expenses.csv
 지출내역서.xlsx
+budget.json
+
 # allow samples
 !data_samples/
 !data_samples/*.xlsx
