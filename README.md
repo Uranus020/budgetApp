@@ -76,14 +76,17 @@
 #### 3) CSV 내보내기 -> 시각화 연동
 1. (8) CSV 파일로 내보내기 -> exports/expenses.csv 생성
 
-2. (9) 지출 내역 시각화하기 -> plots/expense_bar_char.png, plots/expense_line_chart.png생성
+2. (9) 지출 내역 시각화하기 -> plots/expense_bar_chart.png, plots/expense_line_chart.png생성
+
 
 예시 이미지:
-1. 카테고리 막대그래프
-   ![막대그래프 이미지](./plots/expense_bar_chart.png)
 
-2. 지출 일자별 선그래프
-   ![선그래프 이미지](./plots/expense_line_chart.png)
+1. 카테고리 막대그래프  
+   <img src="plots/expense_bar_chart.png" alt="카테고리 막대그래프" width="600">
+
+2. 지출 일자별 선그래프  
+   <img src="plots/expense_line_chart.png" alt="지출 일자별 선그래프" width="600">
+
 
 
 
