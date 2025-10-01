@@ -20,7 +20,11 @@ dist/
 expense.json
 expenses.csv
 지출내역서.xlsx
-# (원하면 전부 무시) *.xlsx
+# allow samples
+!data_samples/
+!data_samples/*.xlsx
+!data_samples/*.csv
+
 
 # Logs & secrets
 *.log
@@ -31,3 +35,8 @@ expenses.csv
 .idea/
 .DS_Store
 Thumbs.db
+
+plots/*
+!plots/expense_bar_chart.png
+!plots/expense_line_chart.png
+
